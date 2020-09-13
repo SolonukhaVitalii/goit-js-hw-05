@@ -3,7 +3,7 @@
 В prototype функции-конструктора добавь метод getInfo(), который возвращает строку со значениями свойств login и email объекта.*/
 
  // Write code under this line
- const Account = function(login, email) {
+ const Account = function (login, email) {
     this.login = login;
     this.email = email;
     }
