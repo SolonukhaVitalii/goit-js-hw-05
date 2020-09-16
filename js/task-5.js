@@ -2,57 +2,53 @@
 Напиши класс Car с указанными свойствами и методами.*/
 
 class Car {
-    // Write code under this line
+  // Write code under this line
    static getSpecs(car) {
-      return `maxSpeed: ${this.maxSpeed}, speed: ${this.speed}, isOn: ${this.isOn}, distance: ${this.distance}, price: ${this.price}`;
-   }
-   
-   constructor(maxSpeed, speed = 0, isOn = false, distance = 0, price) {
-     this._maxSpeed = maxSpeed;
-     this._speed = speed;
-     this._isOn = isOn;
-     this._distance = distance;
-     this._price = price;
-   }
-   
-   get price() {
-   this._price;
-   }
-   
-   set price(value) {
-   this._price = value;
-   }
-   
-   turnOn() {
-   this._isOn = true;
-   }
-   
-   turnOff() {
-   this._isOn = false;
-   this._maxSpeed = 0;
-   }
-   
-   accelerate(value) {
-    if (this._speed + value > 0) {
-   this._speed = 0;
-   }
-   }
-   
-   decelerate(value) {
-   if (this._speed + value > 0) {
-   this._speed = 0;
-   }
-   else {
-   this._speed -= value;
-   }
-   }
-   
-   drive(hours) {
-   if (this._isOn === true) {
-   this._distance = hours* this.speed;
-   }
-   }
- }
+       return `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`;
+    };
+    constructor({speed = 0, price, maxSpeed, isOn = false, distance = 0,}){
+      this.maxSpeed = maxSpeed;
+      this.speed = speed;
+      this.isOn = isOn;
+      this.distance = distance;
+      this.price = price;
+    }
+    get price() {
+    return this._price;
+    }
+    set price(value) {
+    this._price = value;
+    }
+    turnOn() {
+    this.isOn = true;
+    }
+    turnOff() {
+    this.isOn = false;
+    this.speed = 0;
+    }
+    
+    accelerate(value) {
+     if ((this.speed + value) > this.maxSpeed) {
+        this.speed = this.maxSpeed;
+    } else {
+    this.speed += value;
+    };
+    }
+    
+    decelerate(value) {
+    if (this.speed - value > 0) {
+        this.speed -= value;
+    } else {
+    this.speed = 0;
+    };
+    }
+    
+    drive(hours) {
+    if (this.isOn = true) {
+        this.distance += hours * this.speed;
+    };
+    }
+ };
   
  const mustang = new Car({ maxSpeed: 200, price: 2000 });
  mustang.turnOn();
